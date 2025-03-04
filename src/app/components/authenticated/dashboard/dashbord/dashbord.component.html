@@ -1,0 +1,16 @@
+<p>dashbord works!</p>
+
+<app-alert-component
+  [alertType]="'Warning'"
+  [message]="'this is input example of Warning'"
+></app-alert-component>
+<app-alert-component
+  [alertType]="'Success'"
+  [message]="'this is input example of Success'"
+></app-alert-component>
+<app-custom-button
+  (onBtnClick)="onClick($event)"
+  [btnClass]="'btn btn-success'"
+  [btnName]="'Submit'"
+></app-custom-button>
+

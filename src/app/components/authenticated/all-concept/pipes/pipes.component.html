@@ -1,0 +1,72 @@
+<div class="container">
+  <h1 class="text-center mb-4">Angular Pipes</h1>
+  <p>
+    A Pipe in Angular is used to transform data before displaying it in a
+    template it allows you to format filter or modify dat dynamically without
+    changing the original value
+  </p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 class="text-primary">Built-In Pipes</h3>
+        <p>
+          Ready-to-use pipes for common tasks like text formatting, date,
+          numbers, JSON, etc.
+        </p>
+        <ul>
+          <li><strong>uppercase</strong></li>
+          <li><strong>currency</strong></li>
+          <li><strong>date</strong></li>
+          <li><strong>percent</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 class="text-success">Async Pipe</h3>
+        <p>Automatically handles observables or promises in templates.</p>
+        <p>
+          <strong>Example:</strong>
+          (auto-subscribes and unsubscribes).
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 class="text-danger">Custom Pipes</h3>
+        <p>User-defined for specific transformations.</p>
+        <p>
+          <strong>Example:</strong> A custom pipe to capitalize words in a
+          string.
+        </p>
+        <p><strong>Real Example:</strong>{{ "ketan" | capital }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <div class="card p-3 shadow-sm">
+        <h3 class="text-info">Pure Pipes</h3>
+        <p>Only recalculates if the input value changes.</p>
+        <p>All built-in pipes are pure (default).</p>
+        <p>Run only when data refrerence change</p>
+        <p>optimized for performance</p>
+        <p>Good for statice value like string, number and date</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3 shadow-sm">
+        <h3 class="text-warning">Impure Pipes</h3>
+        <p>
+          Recalculates every change detection cycle (useful for dynamic data).
+        </p>
+        <p>run on every change detection cycle</p>
+        <p>useful for dynamically changing data but can impact on performance </p>
+        <p>
+          <strong>Example:</strong> Defined as <code>pure: false</code> in the
+          pipe's decorator.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

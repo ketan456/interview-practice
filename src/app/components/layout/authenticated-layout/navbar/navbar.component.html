@@ -1,0 +1,24 @@
+<div class="navbar">
+  <div class="nav-logo d-flex align-items-center gap-2">
+    <button class="btn d-flex justify-content-center align-items-center">
+      <span class="material-symbols-outlined"> menu </span>
+    </button>
+  </div>
+
+  <div class="nav-user pointer">
+    <div class="nav-name cursor-pointer d-flex gap-4">
+      <div>
+        <div class="d-flex align-items-center">
+          <span class="nav-user-name">{{ "Subject = " + count }}</span>
+          <span class="nav-user-name">{{ "BehaviorSubject = " + behaviorSubject }}</span>
+          <span class="material-symbols-outlined"> arrow_drop_down </span>
+        </div>
+      </div>
+    </div>
+    <ng-template #popContent>
+      <div class="btn-group d-flex flex-column">
+        <li>Logout</li>
+      </div>
+    </ng-template>
+  </div>
+</div>

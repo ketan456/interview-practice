@@ -1,0 +1,157 @@
+<div class="component-wrapper">
+  <h2>RxJS Documentation</h2>
+  <div class="container">
+    <p class="description">
+      RxJS (Reactive Extensions for JavaScript) is a library for reactive
+      programming using Observables. It helps handle asynchronous operations
+      like API calls, user interactions, and event handling in a clean and
+      efficient way.
+      <br /><br />
+      Think of RxJS as a way to handle data streams. A stream is like a sequence
+      of ongoing events or values that can be processed in a structured way.
+    </p>
+  </div>
+
+  <div class="row m-1">
+    <div class="col-6">
+      <div class="container">
+        <h2>Observable</h2>
+
+        <p class="description">
+          An Observable represents a data stream that emits values over time. It
+          is responsible for producing data and notifying subscribers when new
+          data is available, when an error occurs, or when the stream completes.
+          <br /><br />
+        </p>
+        <ul>
+          <li>Role: Producer of data.</li>
+          <li>
+            Functionality: Emits values, handles errors, and signals completion.
+          </li>
+          <li>
+            Methods
+
+            <ul>
+              <li>next(value): Emits a value to subscribers.</li>
+              <li>error(err): Sends an error notification.</li>
+              <li>complete(): Signals that no more values will be emitted.</li>
+            </ul>
+          </li>
+          <pre><code [innerText]="observableCode"></code></pre>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="container">
+        <h2>Observer</h2>
+
+        <p class="description">
+          An Observer listens to an Observable and reacts when it emits values.
+          It is responsible for consuming data and handling the emitted values,
+          errors, or completion signals.
+          <br /><br />
+        </p>
+        <ul>
+          <li>Role: Consumer of data.</li>
+          <li>
+            Functionality: Receives values, processes errors, and reacts when
+            the stream completes.
+          </li>
+          <li>
+            Methods
+
+            <ul>
+              <li>next(value): Handles received values.</li>
+              <li>error(err): Handles errors in the stream.</li>
+              <li>complete(): Executes final actions when the stream ends.</li>
+            </ul>
+          </li>
+        </ul>
+        <pre><code [innerText]="observerCode"></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <h2>RxJS Methods Documentation</h2>
+
+  <div class="container">
+    <div class="method">
+      <h4>1. of() - Create an Observable from values also example of .map()</h4>
+      <p>Creates an observable from a list of values.</p>
+      <pre><code [innerText]="codeExample"></code></pre>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="method">
+      <h4>
+        2. from() - Convert an array, promise, or iterable into an Observable
+      </h4>
+      <p>Converts arrays, promises, or iterables into an observable.</p>
+      <pre><code [innerText]="formCode"></code></pre>
+    </div>
+    <div class="method">
+      <p>With a Promise:</p>
+      <pre><code [innerText]="formCode"></code></pre>
+    </div>
+    <p>Use Case: Convert arrays or promises into an observable stream.</p>
+  </div>
+
+  <div class="container">
+    <div class="method">
+      <h4>3. interval() - Emit values at a fixed time interval</h4>
+      <p>Emits sequential numbers every specified milliseconds.</p>
+      <pre><code [innerText]="intervalCode"></code></pre>
+    </div>
+    <p>Use Case: Useful for periodic polling or real-time updates.</p>
+  </div>
+
+  <div class="container">
+    <div class="method">
+      <h4>4. timer() - Emit a value after a delay or at intervals</h4>
+      <p>The timer() function can:</p>
+      <ul>
+        <li>Emit a single value after a delay .</li>
+        <li>Emit multiple values at intervals.</li>
+      </ul>
+      <pre><code [innerText]="timeCode"></code></pre>
+    </div>
+
+    <div class="method">
+      <h4>For repeated execution:</h4>
+
+      <pre><code [innerText]="timeCode"></code></pre>
+    </div>
+    <p>Use Case: Delay execution or create a countdown timer.</p>
+  </div>
+
+  <div class="container">
+    <div class="method">
+      <h4>5. filter() - Filter values</h4>
+      <p>Filters emitted values based on a condition.</p>
+
+      <pre><code [innerText]="filterCode"></code></pre>
+    </div>
+  </div>
+  <div class="container">
+    <div class="method">
+      <h4>6. mergeMap() - Handle multiple Observables</h4>
+      <p>Merges values from inner observables.</p>
+
+      <pre><code [innerText]="mergeMapCode"></code></pre>
+    </div>
+  </div>
+  <div class="container">
+    <div class="method">
+      <h4>7. switchMap() - Cancel previous Observab</h4>
+      <p>Switches to a new observable and cancels the previous one.</p>
+
+      <pre><code [innerText]="mergeMapCode"></code></pre>
+    </div>
+    <p>
+      Use Case: Ideal for live search where only the latest request should be
+      considered.
+    </p>
+  </div>
+</div>

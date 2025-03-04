@@ -1,0 +1,80 @@
+<div class="component-wrapper">
+  <div class="row">
+    <div class="col-6">
+      <div class="container">
+        <h1>RxJS Subjects</h1>
+
+        <!-- <h2>Different Types of Subjects</h2> -->
+
+        <p>
+          A Subject in RxJS is a special type of Observable that allows values
+          to be multicasted to multiple Observers. Unlike a normal Observable, a
+          Subject acts as both an Observable (emits values) and an Observer (can
+          receive values).
+        </p>
+
+        <ul>
+          <li>
+            Acts as both Observable & Observer – You can subscribe to it and
+            also manually emit values.
+          </li>
+          <li>
+            Multicasting – The same emitted value is shared among all
+            subscribers.
+          </li>
+          <li>
+            Subscribers receive only future values – They do not get previously
+            emitted values.
+          </li>
+        </ul>
+
+        <button (click)="print()">Click Me</button>
+
+        <div class="output" id="output">{{ count }}</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="container">
+        <h1>BehaviorSubject in RxJS (Angular)</h1>
+
+        <h2>A BehaviorSubject is a special type of RxJS Subject that:</h2>
+
+        <p>
+          Requires an initial value when created. Always stores the last emitted
+          value. New subscribers receive the last emitted value immediately.
+        </p>
+        <h2>Why Use BehaviorSubject?</h2>
+        <ul>
+          <li>
+            Great for managing application state (e.g., authentication status,
+            theme settings, user data). x
+          </li>
+          <li>Ensures new subscribers get the latest state immediately.</li>
+          <li>
+            Acts as both an Observable and an Observer (can next() new values).
+          </li>
+        </ul>
+        <input type="text" class="form-control" (input)="behaviorChange($event)"/>
+
+        <div class="output" id="output">{{ behaviorValue || "--" }}</div>
+
+        <h2>A BehaviorSubject is a special type of RxJS Subject that:</h2>
+
+        <ul>
+          <li>
+            When you need to store and share the latest state across multiple
+            components.
+          </li>
+          <li>
+            When you need new subscribers to get the last emitted value
+            immediately.
+          </li>
+          <li>
+            Ideal for authentication state, theme settings, user preferences,
+            and app-wide state management.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

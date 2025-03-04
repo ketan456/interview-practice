@@ -1,0 +1,19 @@
+<div class="theme-color">
+    <app-navbar
+      [collapsed]="isSideNavCollapsed"
+      [screenWidth]="screenWidth"
+      (onToggleSideNav)="onToggleSideNav($event)"
+    ></app-navbar>
+    <app-sidebar
+      [collapsed]="isSideNavCollapsed"
+      [screenWidth]="screenWidth"
+      [bodyClicked]="bodyClicked"
+      (onToggleSideNav)="onToggleSideNav($event)"
+    ></app-sidebar>
+    <app-actual-body
+      [collapsed]="isSideNavCollapsed"
+      [screenWidth]="screenWidth"
+      (onBodyClicked)="catchBodyClicked()"
+    ></app-actual-body>
+  </div>
+  

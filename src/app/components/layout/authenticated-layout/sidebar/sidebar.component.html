@@ -1,0 +1,162 @@
+<div
+  id="sideBar"
+  class="sidenav"
+  [ngClass]="collapsed ? 'sidenav-collapsed' : ''"
+  *ngIf="collapsed"
+>
+  <div class="logo-container">
+    <button
+      *ngIf="showHamburger"
+      class="btn d-flex justify-content-center align-items-center"
+      (click)="toggleCollapse()"
+    >
+      <span class="material-symbols-outlined"> menu </span>
+    </button>
+    <!-- <img class="logo" src="../../../../../assets/logo/icon-128x128.png" alt="" srcset=""> -->
+  </div>
+  <!-- *ngIf="isAdmin" -->
+  <ul class="sidenav-nav" style="overflow-y: auto">
+    <li
+      class="sidenav-nav-item"
+      *ngFor="let data of sideBarData"
+      [class.selected]="
+        selectedParent === data.label && data.items && data.items.length > 0
+      "
+      [class.active]="data.isActive"
+      (click)="mainMenu(data)"
+    >
+      <a
+        class="sidenav-nav-link"
+        (click)="handleClick(data)"
+        *ngIf="data.items && data.items.length > 0"
+        [routerLink]="[data.routeLink]"
+        routerLinkActive="active"
+      >
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <i class="sidenav-link-icon">
+              <span class="material-symbols-outlined icons">
+                {{ data.icon }}
+              </span>
+            </i>
+            <span class="sidenav-link-text " *ngIf="collapsed">{{
+              data.label
+            }}</span>
+          </div>
+          <div class="d-flex">
+            <i *ngIf="data.items && collapsed" class="menu-collapse-icon">
+              <span class="material-symbols-outlined mt-1">
+                {{ !data.expanded ? "expand_more" : "expand_less" }}
+              </span>
+            </i>
+          </div>
+        </div>
+      </a>
+
+      <!-- For redirecting outside soucing application -->
+      <a
+        *ngIf="data.href"
+        [href]="data.href"
+        target="_blank"
+        class="sidenav-nav-link"
+      >
+        <i class="sidenav-link-icon" style="margin-top: 10px !important">
+          <span class="material-symbols-outlined">
+            {{ data.icon }}
+          </span>
+        </i>
+        <span
+          class="sidenav-link-text"
+          style="margin-left: 14px !important"
+          *ngIf="collapsed"
+          >{{ data.label }}</span
+        >
+      </a>
+
+      <a
+        class="sidenav-nav-link"
+        *ngIf="
+          !data.items || (data.items && data.items.length === 0 && !data.href)
+        "
+        [routerLink]="[data.routeLink]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="sidenav-link-icon">
+          <span class="material-symbols-outlined">
+            {{ data.icon }}
+          </span>
+        </i>
+        <span class="sidenav-link-text mt-1 custome-margin" *ngIf="collapsed">{{
+          data.label
+        }}</span>
+      </a>
+
+      <div class="" *ngIf="collapsed && data.items && data.items.length > 0">
+        <app-sublevel-menu
+          [data]="data"
+          [collapsed]="collapsed"
+          [multiple]="multiple"
+          [expanded]="data.expanded"
+        ></app-sublevel-menu>
+      </div>
+    </li>
+  </ul>
+
+  <ul *ngIf="isVendor" class="sidenav-nav" style="overflow-y: auto">
+    <li
+      class="sidenav-nav-item"
+      *ngFor="let data of sideBarData"
+      [class.selected]="
+        selectedParent === data.label && data.items && data.items.length > 0
+      "
+      (click)="mainMenu(data)"
+    >
+      <a
+        class="sidenav-nav-link"
+        (click)="handleClick(data)"
+        *ngIf="data.items && data.items.length > 0"
+      >
+        <i class="sidenav-link-icon">
+          <span class="material-symbols-outlined">
+            {{ data.icon }}
+          </span>
+        </i>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{
+          data.label
+        }}</span>
+        <i *ngIf="data.items && collapsed" class="menu-collapse-icon">
+          <span class="material-symbols-outlined mt-1">
+            {{ !data.expanded ? "expand_more" : "expand_less" }}
+          </span>
+        </i>
+      </a>
+
+      <a
+        class="sidenav-nav-link"
+        *ngIf="!data.items || (data.items && data.items.length === 0)"
+        [routerLink]="[data.routeLink]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="sidenav-link-icon">
+          <span class="material-symbols-outlined">
+            {{ data.icon }}
+          </span>
+        </i>
+        <span class="sidenav-link-text mt-1" *ngIf="collapsed">{{
+          data.label
+        }}</span>
+      </a>
+
+      <div class="" *ngIf="collapsed && data.items && data.items.length > 0">
+        <app-sublevel-menu
+          [data]="data"
+          [collapsed]="collapsed"
+          [multiple]="multiple"
+          [expanded]="data.expanded"
+        ></app-sublevel-menu>
+      </div>
+    </li>
+  </ul>
+</div>

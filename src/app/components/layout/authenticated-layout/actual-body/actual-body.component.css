@@ -1,0 +1,23 @@
+.body {
+    width: calc(100% - 17.5rem);
+    margin-left: 17.5rem;
+    transition: all .5s ease;
+    top: 70px;
+    height: calc(100% - 70px);
+    /* right: 1rem; */
+    position: fixed;
+    z-index: 0;
+    background-color: #F6F7FB;
+}
+
+.body-trimmed {
+    width: calc(100% - 17.5rem);
+    margin-left: 17.5rem;
+}
+
+.body-md-screen {
+    /* width: calc(100% - 5rem); */
+    width: 100% !important;
+    margin: 0px !important;
+    /* margin-left: 5rem; */
+}

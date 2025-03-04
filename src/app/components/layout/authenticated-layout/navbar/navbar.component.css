@@ -1,0 +1,290 @@
+.navbar {
+  width: calc(100%);
+  height: 4.375rem;
+  top: 0;
+  position: fixed;
+  transition: all 0.5s ease;
+  display: flex;
+  background: #ffffff;
+  z-index: 1;
+}
+.qr-scanner {
+  margin-left: 15rem;
+}
+
+.nav-logo {
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.nav-user {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: 1rem;
+}
+
+.profile-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-alert {
+  border-radius: 50%;
+  background-color: rgba(237, 170, 69, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+  border: 0px;
+  position: relative;
+}
+
+.notification-count {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  font-size: 10px;
+  background-color: #edaa45;
+  color: #000;
+  position: absolute;
+  right: 0.05rem;
+  top: -0.2rem;
+}
+
+.nav-alert:hover {
+  background-color: rgba(237, 170, 69, 0.15) !important;
+}
+
+.nav-name {
+  font-size: 0;
+}
+
+.nav-user-name {
+  font-size: large;
+  color: #000;
+  font-family: Avenir;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.nav-user-role {
+  /* font-size: small; */
+  color: #737373;
+  font-family: Avenir;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.user-circle {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-circle > span {
+  color: black;
+}
+
+.body-trimmed {
+  width: calc(100% - 16.5625rem);
+  margin-left: 16.5625rem;
+}
+
+.body-md-screen {
+  width: calc(100% - 5rem);
+  margin-left: 5rem;
+}
+
+div > button:hover {
+  background-color: #f3f3f3;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.material-symbols-outlined {
+  cursor: pointer;
+}
+
+.dropdown > ul {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
+
+.dropdown-menu {
+  width: calc(100vh - 25rem);
+}
+
+ul:nth-child(0) {
+  padding-top: 10px;
+}
+
+ul > li {
+  height: 3rem;
+}
+
+li > a {
+  height: inherit !important;
+}
+
+.dropdown-list {
+  display: flex;
+  align-items: center;
+  width: inherit !important;
+  padding: 5px;
+}
+
+.dropdown-list > .dropdown-icon {
+  padding: 5px 0 0 15px;
+}
+
+.dropdown-list > label {
+  color: #000;
+  font-family: Avenir;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 5px 0px 0px 10px;
+}
+
+.vertical-line {
+  margin-top: 10px;
+  width: 0.5px;
+  height: 24px;
+  border-left: 2px solid #333;
+}
+
+.notification-container {
+  position: relative;
+  max-width: 400px !important;
+  overflow-x: hidden !important;
+}
+
+.notification-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 47px;
+  padding: 5px 20px 5px 20px;
+  border-bottom: #d9d9d9 2px solid;
+  /* min-width: 343px; */
+}
+
+.unread {
+  background: white;
+}
+
+.read {
+  background: #f8f8f8;
+}
+
+.notification-footer {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.notification-message {
+  padding-left: 14px;
+  color: #000;
+  font-family: Avenir;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.see-all {
+  color: #edaa45;
+  font-family: Avenir;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 20px;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.status-icons {
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.notification-circle {
+  max-height: 40px !important;
+  min-height: 40px !important;
+  max-width: 40px !important;
+  min-width: 40px !important;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-pending {
+  width: 100%;
+  color: black;
+  padding: 0.5rem 2.5rem;
+}
+
+#cdk-overlay-0 {
+  width: 400px !important;
+}
+
+.mat-mdc-menu-panel {
+  width: 400px !important;
+}
+
+.mat-mdc-menu-content {
+  width: 400px !important;
+}
+
+.cdk-overlay-pane {
+  width: 400px !important;
+}
+
+li {
+  text-decoration: none !important;
+  list-style: none !important;
+  height: 40px !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+li:hover {
+  background-color: #eaeaeb;
+}
+
+.qr-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1077px) {
+  .qr-scanner {
+    display: flex;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,62 @@
+<div class="container">
+  <h1 class="text-center mb-4">Angular Directives</h1>
+  <p>A directive in Angular is a special class that allows you to add behavior to element components on atributs in the dom</p>
+  <p>Directive help modify the appearnce straucture behaviour of dom elements dynamically</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 class="text-primary">Structural Directives</h3>
+        <p>
+          Structural Directives are directives which change the dom layout by
+          adding and removing dom elements
+        </p>
+        <ul>
+          <li>
+            <strong>*ngIf</strong>: Conditionally adds or removes elements.
+          </li>
+          <li><strong>*ngFor</strong>: Loops over a collection.</li>
+          <li>
+            <strong>*ngSwitch</strong>: Displays elements conditionally based on
+            a value.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 class="text-success">Attribute Directives</h3>
+        <p>
+          Change the appearance or behavior of Dom elements and angular
+          components with attribute directives
+        </p>
+        <ul>
+          <li><strong>ngClass</strong>: Dynamically assigns CSS classes.</li>
+          <li><strong>ngStyle</strong>: Dynamically applies styles.</li>
+          <li>
+            <strong>customDirective</strong>: User-defined directive for
+            extended functionality.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 class="text-danger">Component Directives</h3>
+        <p>Custom components that include logic and templates.</p>
+        <ul>
+          <li>Each Angular component is a directive with a template.</li>
+          <li>Defined using the <strong>Component</strong> decorator.</li>
+          <li>Used to create reusable UI elements.</li>
+        </ul>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          appRepeatTime
+          [isValid]="true"
+        />
+      </div>
+    </div>
+  </div>
+</div>
