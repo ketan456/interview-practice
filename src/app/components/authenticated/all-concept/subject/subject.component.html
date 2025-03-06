@@ -54,7 +54,11 @@
             Acts as both an Observable and an Observer (can next() new values).
           </li>
         </ul>
-        <input type="text" class="form-control" (input)="behaviorChange($event)"/>
+        <input
+          type="text"
+          class="form-control"
+          (input)="behaviorChange($event)"
+        />
 
         <div class="output" id="output">{{ behaviorValue || "--" }}</div>
 
@@ -72,6 +76,77 @@
           <li>
             Ideal for authentication state, theme settings, user preferences,
             and app-wide state management.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="container">
+        <h1>ReplaySubject in RxJS (Angular)</h1>
+
+        <!-- <h2>Different Types of Subjects</h2> -->
+
+        <p>
+          A ReplaySubject is an RxJS subject that stores a specified number of
+          past values and replays them to new subscribers. Unlike a
+          BehaviorSubject, which only retains the latest emitted value, a
+          ReplaySubject can store multiple values.
+        </p>
+        <h2>Why Use ReplaySubject?</h2>
+        <ul>
+          <li>
+            Stores multiple past values (BehaviorSubject only stores one).
+          </li>
+          <li>New subscribers receive the last N values immediately.</li>
+          <li>
+            Useful for caching, maintaining history, or debugging previous
+            states.
+          </li>
+        </ul>
+
+        <button (click)="sendMessage()">Click Me</button>
+
+        <div *ngFor="let msg of messageReplay">
+          <span>{{ msg }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="container">
+        <h1>AsyncSubject in RxJS (Angular)</h1>
+
+        <!-- <h2>Different Types of Subjects</h2> -->
+
+        <p>
+          An AsyncSubject is a special type of RxJS Subject that only emits the
+          last value to its subscribers when the subject completes.
+        </p>
+        <h2>Features of AsyncSubject</h2>
+        <ul>
+          <li>Only emits the last value</li>
+          <li>
+            Subscribers won’t receive any value until .complete() is called
+          </li>
+          <li>Useful for caching the latest value</li>
+        </ul>
+
+        <h2>User Data</h2>
+        <button (click)="loadUser()">Load User</button>
+        <pre>{{ user | json }}</pre>
+
+        <h2>When to Use AsyncSubject?</h2>
+
+        <ul>
+          <li>Fetching API data → Only the final response matters.</li>
+          <li>
+            Expensive computations → Emit the result only when it's ready.
+          </li>
+          <li>
+            Caching the last emitted value → Subscribers receive the last
+            computed value even after completion.
           </li>
         </ul>
       </div>

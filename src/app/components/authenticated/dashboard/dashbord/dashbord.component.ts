@@ -7,20 +7,7 @@ import { AuthService } from '../../../../service/auth/auth-service.service';
   styleUrl: './dashbord.component.css',
 })
 export class DashbordComponent {
-  constructor(private authService: AuthService) {
-    this.getAllPost();
-  }
-
-  getAllPost() {
-    this.authService.getPost().subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
+  constructor(private authService: AuthService) {}
 
   onClick(event: any) {
     console.log(event);

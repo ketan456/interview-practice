@@ -1,1 +1,12 @@
-<router-outlet></router-outlet>
+<router-outlet>
+    <div
+      id="pause"
+      *ngIf="loading$"
+      class="d-flex align-items-center justify-content-center"
+    >
+      <div id="spinner"></div>
+      <div class="loading-text">
+        <!-- <h3 class="loading-text">Loading...</h3> -->
+      </div>
+    </div>
+  </router-outlet>

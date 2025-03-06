@@ -1,14 +1,14 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PostModel } from '../../shared/models/post-model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
-export class AuthService{
-  baseUrl: string = "environment.userUrl";
+export class AuthService {
+  baseUrl: string = 'environment.userUrl';
   constructor(private http: HttpClient) {}
-
 
   logout(): Observable<any> {
     return this.http.post(`${this.baseUrl}/auth/logout`, {});
@@ -30,28 +30,28 @@ export class AuthService{
       departmentId: departmentId,
     };
 
-    if (search == "" || search == undefined || search == null) {
-      delete params["search"];
+    if (search == '' || search == undefined || search == null) {
+      delete params['search'];
     }
 
-    if (locationId == "" || locationId == undefined || locationId == null) {
-      delete params["locationId"];
+    if (locationId == '' || locationId == undefined || locationId == null) {
+      delete params['locationId'];
     }
 
     if (
-      departmentId == "" ||
+      departmentId == '' ||
       departmentId == undefined ||
       departmentId == null
     ) {
-      delete params["departmentId"];
+      delete params['departmentId'];
     }
 
     return this.http.get(`${this.baseUrl}/user/list`, { params: params });
   }
 
   getToken() {
-    let localStorageData = localStorage.getItem("userDetails");
-    let token = "";
+    let localStorageData = localStorage.getItem('userDetails');
+    let token = '';
     if (localStorageData) {
       let parsedData = JSON.parse(localStorageData);
       if (parsedData.idToken) {
@@ -63,7 +63,7 @@ export class AuthService{
     return token;
   }
   isAuthenticated() {
-    let localStorageData = localStorage.getItem("userDetails");
+    let localStorageData = localStorage.getItem('userDetails');
     let token = null;
     let parsedData;
     if (localStorageData) {
@@ -83,9 +83,8 @@ export class AuthService{
     }
   }
 
-
   getLocalUserDetails() {
-    let localStorageData = localStorage.getItem("userDetails");
+    let localStorageData = localStorage.getItem('userDetails');
     if (localStorageData) {
       return JSON.parse(localStorageData);
     } else {
@@ -93,7 +92,14 @@ export class AuthService{
     }
   }
 
-  getPost(){
-   return  this.http.get("https://jsonplaceholder.typicode.com/posts");
+  getPost(page: any, size: any): Observable<PostModel[]> {
+    const param = {
+      _page: page,
+      _limit: size,
+    };
+    return this.http.get<PostModel[]>(
+      'https://jsonplaceholder.typicode.com/posts',
+      { params: param }
+    );
   }
 }
