@@ -36,6 +36,10 @@ export const navbarData: INavbarData[] = [
         routeLink: 'all-concept/subject',
         label: 'Subject rxjs eg.',
       },
+      {
+        routeLink: 'all-concept/infinite-scroller-view',
+        label: 'Infinite Scroller eg.',
+      },
     ],
   },
   // {

@@ -6,48 +6,54 @@ import { PipesComponent } from './pipes/pipes.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { SubjectComponent } from './subject/subject.component';
+import { InfiniteScrollerViewComponent } from './infinite-scroller-view/infinite-scroller-view.component';
 
 const routes: Routes = [
   {
-    path:"",
-    redirectTo:"input-output",
-    pathMatch:"full"
+    path: '',
+    redirectTo: 'input-output',
+    pathMatch: 'full',
   },
   {
-    path:"input-output",
-    component:InputOutputComponent,
-    pathMatch:"full"
+    path: 'input-output',
+    component: InputOutputComponent,
+    pathMatch: 'full',
   },
   {
-    path:"directives",
-    component:DirectivesComponent,
-    pathMatch:"full"
+    path: 'directives',
+    component: DirectivesComponent,
+    pathMatch: 'full',
   },
   {
-    path:"pipes",
-    component:PipesComponent,
-    pathMatch:"full"
+    path: 'pipes',
+    component: PipesComponent,
+    pathMatch: 'full',
   },
   {
-    path:"reactive-form",
-    component:ReactiveFormComponent,
-    pathMatch:"full"
+    path: 'reactive-form',
+    component: ReactiveFormComponent,
+    pathMatch: 'full',
   },
   {
-    path:"rxjs",
-    component:RxjsComponent,
-    pathMatch:"full"
+    path: 'rxjs',
+    component: RxjsComponent,
+    pathMatch: 'full',
   },
   {
-    path:"subject",
-    component:SubjectComponent,
-    pathMatch:"full"
-  }
+    path: 'subject',
+    component: SubjectComponent,
+    pathMatch: 'full',
+  },
 
+  {
+    path: 'infinite-scroller-view',
+    component: InfiniteScrollerViewComponent,
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AllConceptRoutingModule { }
+export class AllConceptRoutingModule {}

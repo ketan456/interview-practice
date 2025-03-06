@@ -10,12 +10,12 @@ import {
 } from '@angular/common/http';
 import { globelInterceptor } from './service/globel.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RepeatTimeDirective } from './shared/directives/repeat-time.directive';
+import { RepeatTimeDirective } from './shared/directives/repeat-time/repeat-time.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { InfiniteScrollerDirective } from './shared/directives/infinite-scroller/infinite-scroller.directive';
 
 @NgModule({
-  declarations: [AppComponent, ],
+  declarations: [AppComponent, InfiniteScrollerDirective, ],
   imports: [
     BrowserModule,
     AppRoutingModule,
