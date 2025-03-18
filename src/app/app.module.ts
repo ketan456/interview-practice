@@ -10,17 +10,22 @@ import {
 } from '@angular/common/http';
 import { globelInterceptor } from './service/globel.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RepeatTimeDirective } from './shared/directives/repeat-time/repeat-time.directive';
+import { RepeatTimeDirective } from '../shared/directives/repeat-time/repeat-time.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InfiniteScrollerDirective } from './shared/directives/infinite-scroller/infinite-scroller.directive';
+import { InfiniteScrollerDirective } from '../shared/directives/infinite-scroller/infinite-scroller.directive';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './components/state/container.reducer';
 
 @NgModule({
-  declarations: [AppComponent, InfiniteScrollerDirective, ],
+  declarations: [AppComponent, InfiniteScrollerDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
+    StoreModule.forRoot({
+      countReducer: counterReducer,
+    },{}),
   ],
   providers: [provideHttpClient(withInterceptors([globelInterceptor]))],
   bootstrap: [AppComponent],

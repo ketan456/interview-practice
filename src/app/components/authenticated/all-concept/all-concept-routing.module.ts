@@ -7,6 +7,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { SubjectComponent } from './subject/subject.component';
 import { InfiniteScrollerViewComponent } from './infinite-scroller-view/infinite-scroller-view.component';
+import { NgRxComponent } from './ng-rx/ng-rx.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,12 @@ const routes: Routes = [
   {
     path: 'infinite-scroller-view',
     component: InfiniteScrollerViewComponent,
+    pathMatch: 'full',
+  },
+
+  {
+    path: 'ngrx',
+    component: NgRxComponent,
     pathMatch: 'full',
   },
 ];

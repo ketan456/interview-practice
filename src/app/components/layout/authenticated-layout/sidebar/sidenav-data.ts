@@ -40,6 +40,10 @@ export const navbarData: INavbarData[] = [
         routeLink: 'all-concept/infinite-scroller-view',
         label: 'Infinite Scroller eg.',
       },
+      {
+        routeLink: 'all-concept/ngrx',
+        label: 'NgRx eg.',
+      },
     ],
   },
   // {

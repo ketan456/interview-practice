@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PostModel } from '../../shared/models/post-model';
+import { PostModel } from '../../../shared/models/post-model';
 
 @Injectable({
   providedIn: 'root',
@@ -70,12 +70,6 @@ export class AuthService {
       parsedData = JSON.parse(localStorageData);
       token = parsedData.idToken;
     }
-    // if (this.jwtHelper.decodeToken(token).sub != null || '') {
-    //   console.log("check expiration",this.jwtHelper.isTokenExpired(token));
-    //   if (this.jwtHelper.isTokenExpired(token)) {
-    //     this.router.navigate(['/authorization']);
-    //   }
-    // }
     if (token == null) {
       return false;
     } else {
@@ -92,14 +86,22 @@ export class AuthService {
     }
   }
 
-  getPost(page: any, size: any): Observable<PostModel[]> {
+  getPost(
+    page: any,
+    size: any,
+    httpContextComp: HttpContext
+  ): Observable<PostModel[]> {
     const param = {
       _page: page,
       _limit: size,
     };
     return this.http.get<PostModel[]>(
       'https://jsonplaceholder.typicode.com/posts',
-      { params: param }
+      {
+        params: param,
+
+        context: httpContextComp,
+      }
     );
   }
 }
