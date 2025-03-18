@@ -14,7 +14,7 @@ export class InputOutputComponent {
 
   getColorFromInput(event: any) {
     if (event != null && event != '') {
-      this.getColor = event;
+        
       console.log(this.getColor);
     } else {
       this.getColor = 'none';

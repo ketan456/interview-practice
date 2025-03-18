@@ -2,37 +2,55 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, finalize, throwError } from 'rxjs';
 import { LoadingService } from './loading/loading.service';
+import { COMPONENT_IDENTIFIER } from '../../shared/context-tokens';
+import { AuthService } from './auth/auth-service.service';
 
 export const globelInterceptor: HttpInterceptorFn = (req, next) => {
   console.log('ketan form interceptor');
-  const authToken = 'Bearer YOUR_JWT_TOKEN_HERE';
-  // const authToken = inject(AuthService);
+  const authService = inject(AuthService);
   const loadingService = inject(LoadingService);
 
-  const modifiedReq = req.clone({
-    setHeaders: {
-      Authorization: authToken,
-    },
-  });
-  console.log(req.url);
-  if(!req.url.includes('jsonplaceholder')){
+  const authToken = authService.getToken();
 
-    loadingService.show();
+  if (authToken && authService.isAuthenticated()) {
+    console.log('is authenticaed');
+    const modifiedReq = req.clone({
+      setHeaders: {
+        Authorization: authToken,
+      },
+    });
+    const componentId = req.context.get(COMPONENT_IDENTIFIER);
+    if (
+      componentId != 'InfiniteScrollerViewComponent' &&
+      req.url.includes('jsonplaceholder.typicode.com')
+    ) {
+      loadingService.show();
+    }
+
+    return next(modifiedReq).pipe(
+      finalize(() => {
+        setTimeout(() => {
+          loadingService.hide();
+        }, 100);
+      }),
+      catchError((err) => {
+        setTimeout(() => {
+          loadingService.hide();
+        }, 100);
+        return handleAuthError(err); // Handle authentication errors
+      })
+    );
+  } else {
+    console.log('is not');
+
+    return next(req).pipe(
+      finalize(() => {}),
+      catchError((err) => {
+        console.log(req);
+        return handleAuthError(err); // Handle authentication errors
+      })
+    );
   }
-  return next(modifiedReq).pipe(
-    finalize(() => {
-      setTimeout(() => {
-        loadingService.hide();
-   
-      }, 100);
-    }),
-    catchError((err) => {
-      setTimeout(() => {
-        loadingService.hide();
-      }, 100);
-      return handleAuthError(err); // Handle authentication errors
-    })
-  );
 };
 
 // 🔹 Authentication Error Handler Function
